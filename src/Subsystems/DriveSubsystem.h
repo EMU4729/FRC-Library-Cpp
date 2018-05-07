@@ -10,18 +10,32 @@
 #include <Commands/Subsystem.h>
 #include <memory>
 #include <Talon.h>
+#include <Encoder.h>
 
 class DriveSubsystem : public frc::Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Talon *leftMotor;
-	Talon *rightMotor;
+	Talon *leftFrontDrive;
+	Talon *rightFrontDrive;
+	Talon *leftBackDrive;
+	Talon *rightBackDrive;
+
 	double speed;
+
+	Encoder *leftEncoder;
+	Encoder *rightEncoder;
+
+	double circumferenceOfWheels;
+	double pulsesPerRevolution;
+
 public:
 	DriveSubsystem();
 	void InitDefaultCommand() override;
 	void arcade(double forwards, double turn);
 	void tank(double left, double right);
+	void power(double left, double right);
+	double getLeftEncoder();
+	double getRightEncoder();
 };
 

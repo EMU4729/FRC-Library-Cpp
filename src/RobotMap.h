@@ -7,6 +7,17 @@
 
 #pragma once
 
+
+constexpr int leftFrontPort = 0;
+constexpr int rightFrontPort = 1;
+constexpr int leftBackPort = 2;
+constexpr int rightBackPort = 3;
+
+constexpr int leftEncoderA = 0;
+constexpr int leftEncoderB = 1;
+constexpr int rightEncoderA = 2;
+constexpr int rightEncoderB = 3;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
