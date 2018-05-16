@@ -8,33 +8,19 @@
 #pragma once
 
 #include <Commands/Subsystem.h>
-#include <Talon.h>
-#include <Encoder.h>
+#include <mindsensors.h>
+using mindsensors::CANLight;
 
-class DriveSubsystem : public frc::Subsystem {
+class LED : public frc::Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Talon *leftFrontDrive;
-	Talon *rightFrontDrive;
-	Talon *leftBackDrive;
-	Talon *rightBackDrive;
-
-	double speed;
-
-	Encoder *leftEncoder;
-	Encoder *rightEncoder;
-
-	double circumferenceOfWheels;
-	double pulsesPerRevolution;
+	CANLight *led;
 
 public:
-	DriveSubsystem();
+	LED();
 	void InitDefaultCommand() override;
-	void arcade(double forwards, double turn);
-	void tank(double left, double right);
-	void power(double left, double right);
-	double getLeftEncoder();
-	double getRightEncoder();
+	void green();
+	void stop();
 };
 

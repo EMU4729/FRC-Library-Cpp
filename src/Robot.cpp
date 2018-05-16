@@ -13,6 +13,10 @@
 ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
 DriveSubsystem Robot::driveSubsystem;
+Flaps Robot::flaps;
+LED Robot::led;
+WinchSubsystem Robot::winchSubsystem;
+CubeSubsystem Robot::cubeSubsystem;
 
 void Robot::RobotInit() {
 	m_chooser.AddDefault("Default Auto", &m_defaultAuto);

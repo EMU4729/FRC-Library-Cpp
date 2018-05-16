@@ -17,6 +17,10 @@
 #include "OI.h"
 #include "Subsystems/ExampleSubsystem.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "Subsystems/Flaps.h"
+#include "Subsystems/LED.h"
+#include "Subsystems/WinchSubsystem.h"
+#include "Subsystems/CubeSubsystem.h"
 #include "Joystick.h"
 
 class Robot : public frc::TimedRobot {
@@ -24,6 +28,10 @@ public:
 	static ExampleSubsystem m_subsystem;
 	static DriveSubsystem driveSubsystem;
 	static OI m_oi;
+	static Flaps flaps;
+	static LED led;
+	static WinchSubsystem winchSubsystem;
+	static CubeSubsystem cubeSubsystem;
 
 	void RobotInit() override;
 	void DisabledInit() override;
