@@ -36,5 +36,8 @@ public:
 	void power(double left, double right);
 	double getLeftEncoder();
 	double getRightEncoder();
+	void highSpeed();
+	void lowSpeed();
+	void resetEncoders();
 };
 

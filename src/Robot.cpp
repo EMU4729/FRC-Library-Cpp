@@ -9,6 +9,7 @@
 
 #include <Commands/Scheduler.h>
 #include <SmartDashboard/SmartDashboard.h>
+#include <Commands/Auto.h>
 
 ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
@@ -19,8 +20,11 @@ WinchSubsystem Robot::winchSubsystem;
 CubeSubsystem Robot::cubeSubsystem;
 
 void Robot::RobotInit() {
-	m_chooser.AddDefault("Default Auto", &m_defaultAuto);
-	m_chooser.AddObject("My Auto", &m_myAuto);
+
+	m_chooser = new SendableChooser();
+	m_chooser.AddDefault("Left", "l");
+	m_chooser.AddObject("Middle", "m");
+	m_chooser.AddObject("Right", "r");
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 }
 
@@ -55,7 +59,7 @@ void Robot::AutonomousInit() {
 	// 	m_autonomousCommand = &m_defaultAuto;
 	// }
 
-	m_autonomousCommand = m_chooser.GetSelected();
+	m_autonomousCommand = Auto(m_chooser.GetSelected());
 
 	if (m_autonomousCommand != nullptr) {
 		m_autonomousCommand->Start();
@@ -71,6 +75,7 @@ void Robot::TeleopInit() {
 	// teleop starts running. If you want the autonomous to
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
+	driveSubsystem.highSpeed();
 	if (m_autonomousCommand != nullptr) {
 		m_autonomousCommand->Cancel();
 		m_autonomousCommand = nullptr;

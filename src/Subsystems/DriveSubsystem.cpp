@@ -14,7 +14,7 @@ DriveSubsystem::DriveSubsystem() : Subsystem("ExampleSubsystem") {
 	leftBackDrive = new Talon(leftBackPort);
 	rightBackDrive = new Talon(rightBackPort);
 
-	speed = 1.0;
+	speed = 0.75;
 
 	leftEncoder = new Encoder(leftEncoderA, leftEncoderB, true);
 	rightEncoder = new Encoder(rightEncoderA, rightEncoderB, true);
@@ -61,6 +61,19 @@ double DriveSubsystem::getLeftEncoder() {
 
 double DriveSubsystem::getRightEncoder() {
 	return rightEncoder->GetDistance();
+}
+
+void DriveSubsystem::highSpeed() {
+	speed = 0.75;
+}
+
+void DriveSubsystem::lowSpeed() {
+	speed = 0.5;
+}
+
+void DriveSubsystem::resetEncoders() {
+	leftEncoder.Reset();
+	rightEncoder.Reset();
 }
 
 // Put methods for controlling this subsystem

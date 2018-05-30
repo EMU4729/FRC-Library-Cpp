@@ -15,6 +15,8 @@
 #include "Commands/OpenFlaps.h"
 #include "Commands/CubeIntake.h"
 #include "Commands/CubeOuttake.h"
+#include "Commands/HighSpeed.h"
+#include "Commands/LowSpeed.h"
 
 OI::OI() {
 	// Process operator interface input here.
@@ -40,4 +42,6 @@ OI::OI() {
 	rb->WhileHeld(new CubeOuttake());
 	l3->WhenPressed(new TwoStickArcade(leftStick, rightStick));
 	r3->WhenPressed(new TwoStickTank(leftStick, rightStick));
+	start->WhenPressed(new HighSpeed());
+	select->WhenPressed(new LowSpeed());
 }
