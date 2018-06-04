@@ -5,6 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include <cmath>
 #include "DriveSubsystem.h"
 #include "../RobotMap.h"
 

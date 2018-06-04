@@ -7,18 +7,19 @@
 
 #pragma once
 
-#include <Commands/CommandGroup.h>
-#include <string>
-#include <DriverStation.h>
-#include "../Enums/Direction.h"
+#include <Commands/Subsystem.h>
+#include <ADXRS450_Gyro.h>
 
-
-class Auto : public frc::CommandGroup {
+class GyroSubsystem : public frc::Subsystem {
 private:
-	std::string autoType;
-	Direction side;
-	std::string gameData;
+	// It's desirable that everything possible under private except
+	// for methods that implement subsystem capabilities
+	ADXRS450_Gyro gyro;
 public:
-	Auto(std::string autoType);
+	GyroSubsystem();
+	void InitDefaultCommand() override;
+	double getGyroAngle();
+	void reset();
+	ADXRS450_Gyro getGyro();
 };
 

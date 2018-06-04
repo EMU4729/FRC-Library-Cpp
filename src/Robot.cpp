@@ -18,6 +18,7 @@ Flaps Robot::flaps;
 LED Robot::led;
 WinchSubsystem Robot::winchSubsystem;
 CubeSubsystem Robot::cubeSubsystem;
+GyroSubsystem Robot::gyroSubsystem;
 
 void Robot::RobotInit() {
 

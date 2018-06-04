@@ -5,42 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Auto.h"
-#include "../Robot.h"
-#include "AutoPath/Left.h"
-#include "AutoPath/Middle.h"
-#include "AutoPath/Right.h"
+#include "Left.h"
+#include "LeftLeft.h"
 
-Auto::Auto(std::string autoType) : autoType{autoType} {
+Left::Left(Direction side) : side{side} {
 
-	Robot::driveSubsystem.lowSpeed();
-	Robot::driveSubsystem.resetEncoders();
-
-	side = Direction::Left;
-
-	gameData = DriverStation::GetInstance().GetGameSpecificMessage();
-	if (gameData[0] == 'L') {
-		side = Direction::Left;
-	} else if (gameData[0] == 'R') {
-		side = Direction::Right;
-	}
-
-	switch (autoType) {
-	case "l":
-		AddSequential(new Left::Left(side));
-		break;
-	case "m":
-		AddSequential(new Middle::Middle());
-		break;
-	case "r":
-		AddSequential(new Right::Right(side));
-		break;
-	default:
-		AddSequential(new Middle::Middle());
-		break;
-	}
-
-
+	AddSequential(new LeftLeft::LeftLeft(side));
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

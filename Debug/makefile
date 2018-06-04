@@ -9,6 +9,7 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/Subsystems/subdir.mk
+-include src/Commands/AutoPath/subdir.mk
 -include src/Commands/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
@@ -46,7 +47,7 @@ all: FRCUserProgram
 FRCUserProgram: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++ -L"C:\Users\FRC-2/wpilib/common/current/lib/linux/athena/shared" -L"C:\Users\FRC-2/wpilib/cpp/current/reflib/linux/athena/shared" -L"C:\Users\FRC-2/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o "FRCUserProgram" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"C:\Users\FRC-3/wpilib/common/current/lib/linux/athena/shared" -L"C:\Users\FRC-3/wpilib/cpp/current/reflib/linux/athena/shared" -L"C:\Users\FRC-3/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o "FRCUserProgram" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

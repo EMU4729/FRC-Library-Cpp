@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lwpi
+LIBS := -lCTRE_Phoenix -lCTRE_PhoenixCCI -lmindsensors -lmindsensorsDriver -lCTRE_Phoenix -lCTRE_PhoenixCCI -lmindsensors -lmindsensorsDriver -lwpi
 

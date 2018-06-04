@@ -10,7 +10,6 @@ CPP_SRCS += \
 ../src/Commands/ExampleCommand.cpp \
 ../src/Commands/HighSpeed.cpp \
 ../src/Commands/LowSpeed.cpp \
-../src/Commands/MyAutoCommand.cpp \
 ../src/Commands/OneStickTank.cpp \
 ../src/Commands/OpenFlaps.cpp \
 ../src/Commands/TwoStickArcade.cpp \
@@ -25,7 +24,6 @@ OBJS += \
 ./src/Commands/ExampleCommand.o \
 ./src/Commands/HighSpeed.o \
 ./src/Commands/LowSpeed.o \
-./src/Commands/MyAutoCommand.o \
 ./src/Commands/OneStickTank.o \
 ./src/Commands/OpenFlaps.o \
 ./src/Commands/TwoStickArcade.o \
@@ -40,7 +38,6 @@ CPP_DEPS += \
 ./src/Commands/ExampleCommand.d \
 ./src/Commands/HighSpeed.d \
 ./src/Commands/LowSpeed.d \
-./src/Commands/MyAutoCommand.d \
 ./src/Commands/OneStickTank.d \
 ./src/Commands/OpenFlaps.d \
 ./src/Commands/TwoStickArcade.d \
@@ -53,7 +50,7 @@ CPP_DEPS += \
 src/Commands/%.o: ../src/Commands/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross G++ Compiler'
-	g++ -I"C:\Users\FRC-2/wpilib/cpp/current/include" -I"C:\Users\FRC-2\Documents\GitHub\FRC-Library-Cpp\src" -I"C:\Users\FRC-2/wpilib/user/cpp/include" -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -I"C:\Users\FRC-3/wpilib/cpp/current/include" -I"C:\Users\FRC-3\eclipse-workspace\FRCpp\src" -I"C:\Users\FRC-3/wpilib/user/cpp/include" -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

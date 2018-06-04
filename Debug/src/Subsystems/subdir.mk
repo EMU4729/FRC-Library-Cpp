@@ -32,7 +32,7 @@ CPP_DEPS += \
 src/Subsystems/%.o: ../src/Subsystems/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross G++ Compiler'
-	g++ -I"C:\Users\FRC-2/wpilib/cpp/current/include" -I"C:\Users\FRC-2\Documents\GitHub\FRC-Library-Cpp\src" -I"C:\Users\FRC-2/wpilib/user/cpp/include" -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -I"C:\Users\FRC-3/wpilib/cpp/current/include" -I"C:\Users\FRC-3\eclipse-workspace\FRCpp\src" -I"C:\Users\FRC-3/wpilib/user/cpp/include" -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -13,7 +13,6 @@
 #include <memory>
 
 #include "Commands/ExampleCommand.h"
-#include "Commands/MyAutoCommand.h"
 #include "OI.h"
 #include "Subsystems/ExampleSubsystem.h"
 #include "Subsystems/DriveSubsystem.h"
@@ -21,6 +20,7 @@
 #include "Subsystems/LED.h"
 #include "Subsystems/WinchSubsystem.h"
 #include "Subsystems/CubeSubsystem.h"
+#include "Subsystems/GyroSubsystem.h"
 #include "Joystick.h"
 
 class Robot : public frc::TimedRobot {
@@ -32,6 +32,7 @@ public:
 	static LED led;
 	static WinchSubsystem winchSubsystem;
 	static CubeSubsystem cubeSubsystem;
+	static GyroSubsystem gyroSubsystem;
 
 	void RobotInit() override;
 	void DisabledInit() override;
@@ -47,6 +48,5 @@ private:
 	// doesn't have undefined behavior and potentially crash.
 	frc::Command* m_autonomousCommand = nullptr;
 	ExampleCommand m_defaultAuto;
-	MyAutoCommand m_myAuto;
 	frc::SendableChooser<frc::Command*> m_chooser;
 };

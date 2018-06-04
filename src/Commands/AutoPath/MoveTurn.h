@@ -7,18 +7,20 @@
 
 #pragma once
 
-#include <Commands/CommandGroup.h>
-#include <string>
-#include <DriverStation.h>
-#include "../Enums/Direction.h"
+#include <Commands/Command.h>
+#include "../../Enums/Direction.h"
 
-
-class Auto : public frc::CommandGroup {
+class MoveTurn : public frc::Command {
 private:
-	std::string autoType;
-	Direction side;
-	std::string gameData;
+	double degrees;
+	Direction direction;
+	double speed;
 public:
-	Auto(std::string autoType);
+	MoveTurn(double deg, Direction dir);
+	void Initialize() override;
+	void Execute() override;
+	bool IsFinished() override;
+	void End() override;
+	void Interrupted() override;
 };
 
